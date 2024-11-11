@@ -11,11 +11,14 @@
 <body>
     <h1>Welcome to My Flask Blog!</h1>
 
-    {% for post in posts %}
-    <div class="post" data-id="{{ post['id'] }}">
-        <h2>{{ post["title"] }}</h2>
-        <p><em>Written by {{ post["author"] }}</em></p>
-        <p>{{ post["content"] }}</p>
+    {% for id in posts %}
+    <div class="post" data-id="{{ id }}">
+        <h2>{{ posts[id]["title"] }}</h2>
+        <form action="/delete/{{ id }}" , method="get">
+            <input type="submit" value="Delete Post">
+        </form>
+        <p><em>Written by {{ posts[id]["author"] }}</em></p>
+        <p>{{ posts[id]["text"] }}</p>
     </div>
     {% endfor %}
 

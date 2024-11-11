@@ -12,9 +12,10 @@ class Storage:
         self.path = os.path.join(self.folder, self.filename)
         self.posts = self.get_posts()
 
-    def get_posts(self) -> list:
+    def get_posts(self) -> dict:
         with open(self.path, "r") as file:
-            return json.load(file)
+            data = json.load(file)
+            return data
 
     def save_posts(self) -> None:
         with open(self.path, "w") as file:
@@ -22,6 +23,14 @@ class Storage:
 
     def add_post(self, title, author, content) -> None:
         new_post = Post(title, author, content)
-        new_dict = new_post.get_dict()
-        self.posts.append(new_dict)
+        content_dict = new_post.get_content()
+        post_id = new_post.id
+        self.posts[post_id] = content_dict
         self.save_posts()
+
+    def delete(self, post_id) -> None:
+        print(post_id)
+        if post_id in self.posts:
+            print("here")
+            del self.posts[post_id]
+            self.save_posts()

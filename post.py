@@ -2,16 +2,15 @@ import uuid
 
 
 class Post:
-    def __init__(self, title, author, content) -> None:
+    def __init__(self, title, author, text) -> None:
         self.id = uuid.uuid4().hex
         self.title = title
         self.author = author
-        self.content = content
+        self.text = text
 
-    def get_dict(self) -> dict:
+    def get_content(self) -> dict:
         return {
-            "id": self.id,
             "author": self.author,
             "title": self.title,
-            "content": self.content,
+            "text": self.text,
         }

@@ -1,8 +1,12 @@
-[
-  {
-    "id": "6d607fac18ed460f85c5de8fcf98833e",
+{
+  "f53887682f004b05a094ff649709762a": {
     "author": "Jane Doe",
     "title": "My blog post!",
-    "content": "Your blog post goes here!"
+    "text": "Your blog post goes here!"
+  },
+  "bbfc50eeff3244b694f887241e7ecc5d": {
+    "author": "John Doe",
+    "title": "My blog post!",
+    "text": "Your blog post goes here!"
   }
-]
+}

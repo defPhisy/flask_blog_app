@@ -7,7 +7,6 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    
     blog_posts = STORAGE.get_posts()
     return render_template("index.html", posts=blog_posts)
 
@@ -16,15 +15,22 @@ def index():
 def add():
     if request.method == "POST":
         # We will fill this in the next step
-        
+
         title = request.form.get("title")
         author = request.form.get("author")
-        content = request.form.get("content")
+        text = request.form.get("text")
 
-        STORAGE.add_post(title, author, content)
+        STORAGE.add_post(title, author, text)
 
         return redirect(url_for("index"))
     return render_template("add.html")
+
+
+@app.route("/delete/<post_id>")
+def delete(post_id):
+    STORAGE.delete(post_id)
+
+    return redirect(url_for("index"))
 
 
 if __name__ == "__main__":
