@@ -1,12 +1,12 @@
-class Post:
-    __ID = 0
+import uuid
 
+
+class Post:
     def __init__(self, title, author, content) -> None:
-        self.id = self.__ID
+        self.id = uuid.uuid4().hex
         self.title = title
         self.author = author
         self.content = content
-        self.__ID += 1
 
     def get_dict(self) -> dict:
         return {

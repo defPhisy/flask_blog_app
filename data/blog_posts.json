@@ -1,14 +1,8 @@
 [
   {
-    "id": 1,
-    "author": "John Doe",
-    "title": "First Post",
-    "content": "This is my first post."
-  },
-  {
-    "id": 2,
+    "id": "6d607fac18ed460f85c5de8fcf98833e",
     "author": "Jane Doe",
-    "title": "Second Post",
-    "content": "This is another post."
+    "title": "My blog post!",
+    "content": "Your blog post goes here!"
   }
 ]
