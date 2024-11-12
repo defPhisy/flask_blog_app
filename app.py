@@ -33,6 +33,23 @@ def delete(post_id):
     return redirect(url_for("index"))
 
 
+@app.route("/update/<post_id>", methods=["GET", "POST"])
+def update(post_id):
+    post = STORAGE.get_post(post_id)
+
+    if post is None:
+        return "Post not found", 404
+
+    if request.method == "POST":
+        title = request.form.get("title")
+        author = request.form.get("author")
+        text = request.form.get("text")
+        STORAGE.update_post(post_id, title, author, text)
+        return redirect(url_for("index"))
+
+    return render_template("update.html", post_id=post_id, post=post)
+
+
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template("404.html"), 404

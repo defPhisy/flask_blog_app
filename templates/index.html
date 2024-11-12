@@ -17,6 +17,9 @@
         <form action="/delete/{{ id }}" , method="get">
             <input type="submit" value="Delete Post">
         </form>
+        <form action="/update/{{ id }}" , method="get">
+            <input type="submit" value="Update Post">
+        </form>
         <p><em>Written by {{ posts[id]["author"] }}</em></p>
         <p>{{ posts[id]["text"] }}</p>
     </div>
